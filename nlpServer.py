@@ -1,22 +1,22 @@
 import spacy
 from flask import Flask
 from flask import request
+from flask import jsonify
+from flask import current_app
 app = Flask(__name__)
-nlp = spacy.load('en')
+nlp = spacy.load('en_vectors_glove_md')
 
-searchphrase = "Car manufacturer"
-searchdoc = nlp(searchphrase)
 
 @app.route('/settopic')
 def set_topic():
-    searchphrase = request.args.get('topic', '')
-    searchdoc = nlp(searchphrase)
-    print("Searchphrase is: {}".format(searchphrase))
-    return searchphrase
+    current_app.searchphrase = request.args.get('topic', '')
+    current_app.searchdoc = nlp(current_app.searchphrase)
+    print("Searchphrase is: {}".format(current_app.searchphrase))
+    return jsonify(result=current_app.searchphrase)
 
-@app.route('/rate_phrase')
-def rate_phrase():
+@app.route('/comparewith')
+def compare_with():
     comparephrase = request.args.get('phrase', '')
     comparedoc = nlp(comparephrase)
-    similarity = str(searchdoc.similarity(comparedoc))
-    return similarity
+    similarity = str(current_app.searchdoc.similarity(comparedoc))
+    return jsonify(result=similarity, phrase=comparephrase, topic=current_app.searchphrase)
