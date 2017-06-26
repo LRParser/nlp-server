@@ -12,7 +12,7 @@ It also allows users to build smart alerts to follow a news story as it evolves,
 
 1. nlp-server correctly uncovers the structure of the auto market, similarity between Chipotle and Mexican food, and many other scenarios as can be seen in the below conversation
 
-[logo]: https://github.com/LRParser/nlp-server/images/chatbotdemo.png "KnowledgeBot Demo"
+[logo]: images/chatbotdemo.png "KnowledgeBot Demo"
 
 ![alt text][logo]
 
