@@ -4,7 +4,7 @@ from flask import request
 app = Flask(__name__)
 nlp = spacy.load('en')
 
-searchphrase = "Fruit producer"
+searchphrase = "Car manufacturer"
 searchdoc = nlp(searchphrase)
 
 @app.route('/settopic')
@@ -18,4 +18,5 @@ def set_topic():
 def rate_phrase():
     comparephrase = request.args.get('phrase', '')
     comparedoc = nlp(comparephrase)
-    return searchdoc.similarity(comparedoc)
+    similarity = str(searchdoc.similarity(comparedoc))
+    return similarity
