@@ -2,7 +2,7 @@
 
 ## Description
 
-nlp-server is designed to allow remote access to a set of (GloVe)[https://nlp.stanford.edu/projects/glove/] vectors to compare phrase similarity
+nlp-server is designed to allow remote access to a set of [GloVe](https://nlp.stanford.edu/projects/glove/) vectors to compare phrase similarity
 
 It allows for a chat system to 'discover' what people are interested in and then 'link' them together (suggest they talk to each other) if they talk about similar topics, e.g. one talks about "auto manufacturers" and another "car producers"
 
@@ -20,15 +20,15 @@ It also allows users to build smart alerts to follow a news story as it evolves,
 
 1. Run
     ```bash
-    ```./bootstrap.sh
+    ./bootstrap.sh
     ```
 1. Run
     ```bash
-    ```source activate spacyenv
+    source activate spacyenv
     ```
 1. Run
     ```bash
-    ```./startServer.sh
+    ./startServer.sh
     ```
 
-See also the (related chatbot extension)[https://github.com/LRParser/bot-butler],
+See also the [related chatbot extension](https://github.com/LRParser/bot-butler)
